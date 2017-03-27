@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 public class TestNgAnnotations {
 
-	WebDriver driver;
+	WebDriver browser;
 
 	@BeforeClass
 	public void firstMethod() {
@@ -24,13 +24,13 @@ public class TestNgAnnotations {
 
 	@BeforeMethod
 	public void startUp() {
-		driver = new ChromeDriver();
-		driver.get("http://www.gmail.com");
+		browser = new ChromeDriver();
+		browser.get("http://www.gmail.com");
 	}
 
 	@Test
 	public void verifyLoginPage() {
-		String x = driver.findElement(By.xpath("//*[@id='link-signup']/a")).getText();
+		String x = browser.findElement(By.xpath("//*[@id='link-signup']/a")).getText();
 
 		assertEquals(x, "Create account");
 
@@ -39,13 +39,13 @@ public class TestNgAnnotations {
 
 	@Test
 	public void verifyLandingPage() throws Exception {
-		driver.findElement(By.xpath("//*[@id='Email']")).sendKeys("seleniumbatch2017");
-		driver.findElement(By.name("signIn")).click();
+		browser.findElement(By.xpath("//*[@id='Email']")).sendKeys("seleniumbatch2017");
+		browser.findElement(By.name("signIn")).click();
 		Thread.sleep(5000);
-		driver.findElement(By.id("Passwd")).sendKeys("batch2017");
-		driver.findElement(By.id("signIn")).click();
+		browser.findElement(By.id("Passwd")).sendKeys("batch2017");
+		browser.findElement(By.id("signIn")).click();
 
-		WebElement webElement = driver.findElement(By.xpath("//div[text()='COMPOSE']"));
+		WebElement webElement = browser.findElement(By.xpath("//div[text()='COMPOSE']"));
 		String compose = webElement.getText();
 		System.out.println(compose);
 
@@ -54,8 +54,8 @@ public class TestNgAnnotations {
 
 	@AfterMethod
 	public void cleanUp() {
-		driver.close();
-		driver.quit();
+		browser.close();
+		browser.quit();
 	}
 
 	@AfterClass
