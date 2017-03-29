@@ -11,26 +11,26 @@ import org.testng.annotations.Test;
 
 public class TestNgExamples {
 
-	static WebDriver browser;
+	static WebDriver driver;
 
 	@BeforeMethod
 	public void startUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\capital terefe\\classOf2017\\chromedriver.exe");
-		browser = new ChromeDriver();
-		browser.get("http://www.gmail.com");
-		browser.findElement(By.id("Email")).sendKeys("seleniumbatch2017");
-		browser.findElement(By.id("next")).click();
+		driver = new ChromeDriver();
+		driver.get("http://www.gmail.com");
+		driver.findElement(By.id("Email")).sendKeys("seleniumbatch2017");
+		driver.findElement(By.id("next")).click();
 		Thread.sleep(3000);
-		browser.findElement(By.id("Passwd")).sendKeys("batch2017");
+		driver.findElement(By.id("Passwd")).sendKeys("batch2017");
 		// browser.findElement(By.id("PersistentCookie")).click();
-		browser.findElement(By.id("signIn")).click();
+		driver.findElement(By.id("signIn")).click();
 		Thread.sleep(9000);
 
 	}
 
 	@Test
 	public void verification() {
-		WebElement webElement = browser.findElement(By.xpath("//*[@id=':3t']/div/div"));
+		WebElement webElement = driver.findElement(By.xpath("//*[@id=':3t']/div/div"));
 		String compose = webElement.getText();
 		// System.out.println(compose);
 
@@ -43,8 +43,8 @@ public class TestNgExamples {
 
 	@AfterMethod
 	public void cleanUp() {
-		browser.close();
-		browser.quit();
+		driver.close();
+		driver.quit();
 	}
 
 }
