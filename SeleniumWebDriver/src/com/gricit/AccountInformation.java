@@ -26,7 +26,7 @@ public class AccountInformation {
 	WebElement newsLetter;
 	WebElement password;
 	WebElement passwordConfirmation;
-	WebElement continueBtn;
+	WebElement continueBtutton;
 	WebElement firstName;
 
 	public void typeFirstName() {
