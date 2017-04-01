@@ -3,14 +3,19 @@ package com.gricit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import com.resource.Utility;
 
 public class AccountInformation {
 
+	Utility utility = new Utility();
+	By lastName = By.name("lastname");
+	By firstName = By.name("firstname");
 	WebDriver driver;
 	WebElement myAccountInformationTxt;
 	WebElement genderMale;
 	WebElement genderFemale;
-	WebElement lastName;
 	WebElement dateOfBirth;
 	WebElement email;
 	WebElement companyName;
@@ -27,11 +32,18 @@ public class AccountInformation {
 	WebElement password;
 	WebElement passwordConfirmation;
 	WebElement continueBtutton;
-	WebElement firstName;
 
+	// This is what we trying to avoid
 	public void typeFirstName() {
-		firstName = driver.findElement(By.name("firstname"));
-		firstName.sendKeys("MY FirstName");
+		// firstName = driver.findElement(By.name("firstname"));
+		// firstName.sendKeys("MY FirstName");
+	}
+
+	@Test
+	public void registration() {
+
+		utility.typeInto(lastName, "Terefe");
+		utility.typeInto(firstName, "Capital");
 	}
 
 
