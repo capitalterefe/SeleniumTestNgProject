@@ -10,9 +10,10 @@ import org.testng.annotations.Test;
 
 
 public class TestNgExamples {
+	
 
 	static WebDriver driver;
-
+//BeforeMethod annotation-MM
 	@BeforeMethod
 	public void startUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\capital terefe\\classOf2017\\chromedriver.exe");
